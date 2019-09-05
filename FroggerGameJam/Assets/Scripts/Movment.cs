@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Movment : MonoBehaviour
 {
-    float MoveTimer;
+    
+    public float MoveTimer;
     // Start is called before the first frame update
     void Start()
     {
-        MoveTimer = .05f;
+        MoveTimer = .5f;
     }
 
     // Update is called once per frame
@@ -22,22 +23,22 @@ public class Movment : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && MoveTimer <= 0)
         {
             gameObject.transform.position += new Vector3(0,1,0);
-            MoveTimer = .05f;
+            MoveTimer = .07f;
         }
         if (Input.GetKeyDown(KeyCode.A) && MoveTimer <= 0)
         {
             gameObject.transform.position += new Vector3(-1,0,0);
-            MoveTimer = .05f;
+            MoveTimer = .07f;
         }
         if (Input.GetKeyDown(KeyCode.D) && MoveTimer <= 0)
         {
             gameObject.transform.position += new Vector3(1,0,0);
-            MoveTimer = .05f;
+            MoveTimer = .07f;
         }
         if (Input.GetKeyDown(KeyCode.S) && MoveTimer <= 0)
         {
             gameObject.transform.position += new Vector3(0,-1,0);
-            MoveTimer = .05f;
+            MoveTimer = .07f;
         }
     }
 }
