@@ -325,9 +325,9 @@ GameObject:
   m_Component:
   - component: {fileID: 111240812}
   - component: {fileID: 111240811}
-  - component: {fileID: 111240810}
   - component: {fileID: 111240809}
   - component: {fileID: 111240813}
+  - component: {fileID: 111240810}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -349,22 +349,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveTimer: 0
   ResetTimer: 0.05
---- !u!58 &111240810
-CircleCollider2D:
+  tryey: 0
+--- !u!65 &111240810
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111240808}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0.07, z: 0}
 --- !u!212 &111240811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -402,7 +400,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 48d6f7ce02faf0348bf4c3d3f872ccf4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -421,8 +419,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111240808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.68, y: 0, z: 1.7}
-  m_LocalScale: {x: 4.3720756, y: 4.3720756, z: 4.3720756}
+  m_LocalPosition: {x: 2.497, y: -0.5026, z: 1.7}
+  m_LocalScale: {x: 1.57, y: 1.57, z: 1.57}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -600,7 +598,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 0
-  m_HDR: 1
+  m_HDR: 0
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
