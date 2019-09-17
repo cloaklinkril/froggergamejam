@@ -10,6 +10,7 @@ public class log : MonoBehaviour
  public Vector3 bruh;
  public bool checkpls = false;
  public bool dissablecollider = false;
+    public float speed;
 
     // Start is called before the first frame update
 void Start()
@@ -42,7 +43,7 @@ void Update()
     }
     
     timer -= Time.deltaTime;
-    transform.position += new Vector3(0.09f, 0, 0);
+    transform.position += new Vector3(speed, 0, 0);
     if (timer <= 0)
     {
         transform.position = bruh;
