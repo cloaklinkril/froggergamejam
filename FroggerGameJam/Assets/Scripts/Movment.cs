@@ -38,6 +38,7 @@ public class Movment : MonoBehaviour
         {
             gameObject.transform.position += new Vector3(0,1,0);
             MoveTimer = ResetTimer;
+            transform.eulerAngles = Vector3.forward * 0;
             Debug.Log("brub");
             tryey = false;
             if(othercheck==true)
@@ -50,6 +51,7 @@ public class Movment : MonoBehaviour
         {
             gameObject.transform.position += new Vector3(-1,0,0);
             MoveTimer = ResetTimer;
+            transform.eulerAngles = Vector3.forward * 90;
             if (othercheck == true)
             {
                 die();
@@ -59,6 +61,7 @@ public class Movment : MonoBehaviour
         {
             gameObject.transform.position += new Vector3(1,0,0);
             MoveTimer = ResetTimer;
+            transform.eulerAngles = Vector3.forward * -90;
             if (othercheck == true)
             {
                 die();
@@ -68,6 +71,7 @@ public class Movment : MonoBehaviour
         {
             gameObject.transform.position += new Vector3(0,-1,0);
             MoveTimer = ResetTimer;
+            transform.eulerAngles = Vector3.forward * 180;
             tryey = false;
             if (othercheck == true)
             {
