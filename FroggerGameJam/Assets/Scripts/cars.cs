@@ -9,6 +9,7 @@ public class cars : MonoBehaviour
     public GameObject car;
     public Vector3 bruh;
     public bool activate = false;
+    public float Move;
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class cars : MonoBehaviour
     {
         var logscript = FindObjectOfType<log>();
         timer -= Time.deltaTime;
-        transform.position += new Vector3(0.09f, 0, 0);
+        transform.position += new Vector3(Move, 0, 0);
         if(timer<=0)
         {
             transform.position = bruh;

@@ -11,12 +11,7 @@ public class water : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == ("player"))
-        {
-            // Destroy(player);
-            part1 = true;
-            Debug.Log("lkdskdskjldsfjkljkdsfkjlfkljfkjlfdsjkl");
-        }
+      
     }
     // Start is called before the first frame update
     void Start()
@@ -27,6 +22,7 @@ public class water : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         var dissablecolliders = FindObjectOfType<log>().dissablecollider;
         var tryeyy = FindObjectOfType<Movment>().tryey;
         if(tryeyy)
@@ -47,5 +43,17 @@ public class water : MonoBehaviour
         {
             Destroy(player);
         }
+=======
+        //var logo = FindObjectOfType<log>();
+        //if(logo.checkpls == true)
+        //{
+        //    part2 = true;
+        //}
+        //
+        //if(part1&&part2)
+        //{
+        //    Destroy(player);
+        //}
+>>>>>>> 006af1f01edb3725184bc0716d2a164e96c12c3a
     }
 }
