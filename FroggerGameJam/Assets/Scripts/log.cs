@@ -9,6 +9,7 @@ public class log : MonoBehaviour
  public GameObject car;
  public Vector3 bruh;
  public bool checkpls = false;
+ public bool dissablecollider = false;
 
     // Start is called before the first frame update
 void Start()
@@ -23,6 +24,12 @@ private void OnTriggerEnter2D(Collider2D collision)
     {
             checkpls = true;
             Debug.Log("yes");
+            dissablecollider = true;
+    }
+    else
+    {
+            dissablecollider = false;
+            Debug.Log("bruh");
     }
 }
 
