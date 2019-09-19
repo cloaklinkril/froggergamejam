@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KillPlayerOnTimerEnd : MonoBehaviour
 {
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,6 +13,8 @@ public class KillPlayerOnTimerEnd : MonoBehaviour
     public void OnTimerEnd()
     {
         Debug.Log("Hi");
+        Destroy(player);
+        
     }
    
 }
