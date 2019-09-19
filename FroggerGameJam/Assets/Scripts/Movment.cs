@@ -12,6 +12,8 @@ public class Movment : MonoBehaviour
     public GameObject yep;
     public bool othercheck = false;
     public float speed;
+    public float timer = 0.7f;
+    public bool abouttodie = false;
     
     // Start is called before the first frame update
     
@@ -31,6 +33,7 @@ public class Movment : MonoBehaviour
             var logspeed = collision.GetComponent<log>().speed;
             speed = logspeed;
             logmover = true;
+            abouttodie = false;
         }
 
 
@@ -38,7 +41,13 @@ public class Movment : MonoBehaviour
 
         if (collision.gameObject.tag == ("water") && logmover == false)
         {
-            die();
+            abouttodie = true;
+            timer -= Time.deltaTime;
+            if(timer<=0)
+            {
+                die();
+            }
+            
 
             Debug.Log("dead");
             if (collision.gameObject.tag != ("log") && logmover)
@@ -46,12 +55,13 @@ public class Movment : MonoBehaviour
                 Debug.Log("nomore");
                 //tryey = false;
                 othercheck = true;
+                
             }
 
         }
 
 
-
+    
     }
 
     // Update is called once per frame
@@ -63,15 +73,29 @@ public class Movment : MonoBehaviour
             Debug.Log("dsjflkdsfjlkdsfkjl");
        }
         MoveTimer -= Time.deltaTime;
-      
+
+
+        if(abouttodie && logmover == false)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                die();
+                abouttodie = false;
+            }
+        }
+       
         //
         //print(MoveTimer);
 
         if (Input.GetKeyDown(KeyCode.W) && MoveTimer <= 0)
         {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.transform.position += new Vector3(0,1,0);
             MoveTimer = ResetTimer;
+          
             transform.eulerAngles = Vector3.forward * 0;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             Debug.Log("brub");
             logmover = false;
             if(othercheck==true)
@@ -82,9 +106,12 @@ public class Movment : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A) && MoveTimer <= 0)
         {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.transform.position += new Vector3(-1,0,0);
             MoveTimer = ResetTimer;
+         
             transform.eulerAngles = Vector3.forward * 90;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             if (othercheck == true)
             {
                 die();
@@ -92,9 +119,12 @@ public class Movment : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D) && MoveTimer <= 0)
         {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.transform.position += new Vector3(1,0,0);
             MoveTimer = ResetTimer;
+            
             transform.eulerAngles = Vector3.forward * -90;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             if (othercheck == true)
             {
                 die();
@@ -102,9 +132,12 @@ public class Movment : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S) && MoveTimer <= 0)
         {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.transform.position += new Vector3(0,-1,0);
             MoveTimer = ResetTimer;
+            
             transform.eulerAngles = Vector3.forward * 180;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             logmover = false;
             if (othercheck == true)
             {

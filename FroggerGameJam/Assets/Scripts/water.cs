@@ -24,7 +24,7 @@ public class water : MonoBehaviour
     {
         //}
         var dissablecolliders = FindObjectOfType<log>().dissablecollider;
-        var tryeyy = FindObjectOfType<Movment>().tryey;
+        var tryeyy = FindObjectOfType<Movment>().logmover;
         if(tryeyy)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false; 
