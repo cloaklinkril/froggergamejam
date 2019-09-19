@@ -7,25 +7,58 @@ public class Movment : MonoBehaviour
     
     public float MoveTimer;
     public float ResetTimer;
-    public bool tryey = false;
+    public bool logmover = false;
+    public bool logmover2 = false;
     public GameObject yep;
     public bool othercheck = false;
+    public float speed;
+    
     // Start is called before the first frame update
     
     void Start()
     {
         MoveTimer = ResetTimer;
+
     }
     public void die()
     {
         Destroy(gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<log>())
+        {
+            var logspeed = collision.GetComponent<log>().speed;
+            speed = logspeed;
+            logmover = true;
+        }
+
+
+
+
+        if (collision.gameObject.tag == ("water") && logmover == false)
+        {
+            die();
+
+            Debug.Log("dead");
+            if (collision.gameObject.tag != ("log") && logmover)
+            {
+                Debug.Log("nomore");
+                //tryey = false;
+                othercheck = true;
+            }
+
+        }
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
        
-       if(tryey == true)
+       if(logmover == true)
        {
             Debug.Log("dsjflkdsfjlkdsfkjl");
        }
@@ -40,7 +73,7 @@ public class Movment : MonoBehaviour
             MoveTimer = ResetTimer;
             transform.eulerAngles = Vector3.forward * 0;
             Debug.Log("brub");
-            tryey = false;
+            logmover = false;
             if(othercheck==true)
             {
                 die();
@@ -72,7 +105,7 @@ public class Movment : MonoBehaviour
             gameObject.transform.position += new Vector3(0,-1,0);
             MoveTimer = ResetTimer;
             transform.eulerAngles = Vector3.forward * 180;
-            tryey = false;
+            logmover = false;
             if (othercheck == true)
             {
                 die();
@@ -80,42 +113,18 @@ public class Movment : MonoBehaviour
         }
 
         var log = FindObjectOfType<log>();
-        if (tryey)
+        if (logmover)
         {
-            transform.position += new Vector3(0.09f, 0, 0);
-            
+         
+            transform.position += new Vector3(speed, 0, 0);
+            Debug.Log("logiscolliding");
+
         }
+       
         
         Vector3 bru = transform.position;
         bru.z = -7;
         transform.position = bru;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == ("log"))
-        {
-            Debug.Log("onlog");
-            tryey = true;
-
-        }
-
-
-       
-        if (collision.gameObject.tag == ("water") && tryey==false)
-        {
-            die();
-
-            Debug.Log("dead");
-            if (collision.gameObject.tag != ("log") && tryey)
-            {
-                Debug.Log("nomore");
-                //tryey = false;
-                othercheck = true;
-            }
-
-        }
-       
-
-
-    }
+    
 }
