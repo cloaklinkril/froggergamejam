@@ -4,25 +4,20 @@ using UnityEngine;
 
 public class cars : MonoBehaviour
 {
-    public float timer;
-    float timertemp;
     public GameObject car;
-    public Vector3 bruh;
+    public int respawnAtX = 8;
     public bool activate = false;
     public float Move;
     
     // Start is called before the first frame update
     void Start()
     {
-        timertemp = timer;
-        bruh = transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == ("player"))
         {
-           
             activate = true;
             Debug.Log("lkdskdskjldsfjkljkdsfkjlfkljfkjlfdsjkl");
         }
@@ -32,15 +27,18 @@ public class cars : MonoBehaviour
     void Update()
     {
         var logscript = FindObjectOfType<log>();
-        timer -= Time.deltaTime;
-        transform.position += new Vector3(Move, 0, 0);
-        if(timer<=0)
+        transform.position += new Vector3(Move * 60 / (1 / Time.deltaTime), 0, 0);
+        if (Move > 0)
         {
-            transform.position = bruh;
-
-            timer = timertemp;   
+            if(transform.position.x >= respawnAtX)
+                transform.position = new Vector3(-respawnAtX, transform.position.y, transform.position.z);
         }
-        if(activate && logscript.checkpls)
+        else if (Move < 0)
+        {
+            if (transform.position.x <= respawnAtX)
+                transform.position = new Vector3(-respawnAtX, transform.position.y, transform.position.z);
+        }
+            if (activate && logscript.checkpls)
         {
             Destroy(car);
             activate = false;

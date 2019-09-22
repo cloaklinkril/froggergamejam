@@ -7,8 +7,8 @@ public class log : MonoBehaviour
  public float timer;
  float timertemp;
  public GameObject car;
- public Vector3 bruh;
- public bool checkpls = false;
+    public float respawnAtX = 8;
+    public bool checkpls = false;
  public bool dissablecollider = false;
     public float speed;
 
@@ -16,7 +16,6 @@ public class log : MonoBehaviour
 void Start()
 {
     timertemp = timer;
-    bruh = transform.position;
 }
 
 private void OnTriggerEnter2D(Collider2D collision)
@@ -41,16 +40,19 @@ void Update()
     {
             Debug.Log("uououououoo");
     }
-    
-    timer -= Time.deltaTime;
-    transform.position += new Vector3(speed, 0, 0);
-    if (timer <= 0)
-    {
-        transform.position = bruh;
 
-        timer = timertemp;
-    }
-    if (checkpls)
+        transform.position += new Vector3(speed * 60 / (1 / Time.deltaTime), 0, 0);
+        if (speed > 0)
+        {
+            if (transform.position.x >= respawnAtX)
+                transform.position = new Vector3(-respawnAtX, transform.position.y, transform.position.z);
+        }
+        else if (speed < 0)
+        {
+            if (transform.position.x <= respawnAtX)
+                transform.position = new Vector3(-respawnAtX, transform.position.y, transform.position.z);
+        }
+        if (checkpls)
     {
 
     }
