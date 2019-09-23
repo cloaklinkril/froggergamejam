@@ -6,6 +6,7 @@ TagManager:
   tags:
   - log
   - water
+  - Goal
   layers:
   - Default
   - TransparentFX

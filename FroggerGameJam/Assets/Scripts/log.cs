@@ -23,23 +23,23 @@ private void OnTriggerEnter2D(Collider2D collision)
     if (collision.gameObject.name == ("player"))
     {
             checkpls = true;
-            Debug.Log("yes");
+            // Debug.Log("yes");
             dissablecollider = true;
     }
     else
     {
             dissablecollider = false;
-            Debug.Log("bruh");
+            // Debug.Log("bruh");
+        }
     }
-}
 
 // Update is called once per frame
 void Update()
 {
     if (checkpls==true)
     {
-            Debug.Log("uououououoo");
-    }
+            // Debug.Log("uououououoo");
+        }
 
         transform.position += new Vector3(speed * 60 / (1 / Time.deltaTime), 0, 0);
         if (speed > 0)

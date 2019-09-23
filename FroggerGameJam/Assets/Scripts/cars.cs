@@ -18,6 +18,7 @@ public class cars : MonoBehaviour
     {
         if (collision.gameObject.name == ("player"))
         {
+            EventScript.current.PlayerRunOver();
             activate = true;
             Debug.Log("lkdskdskjldsfjkljkdsfkjlfkljfkjlfdsjkl");
         }

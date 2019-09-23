@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class GetHome : MonoBehaviour
 {
+    SpriteRenderer spriteR;
+    public Sprite frog;
     // Start is called before the first frame update
     void Start()
     {
-
+        spriteR = gameObject.GetComponent<SpriteRenderer>();
     }
     // Start is called before the first frame update
     public bool frogHome = false; 
@@ -15,8 +17,12 @@ public class GetHome : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if(!frogHome)
+            if (!frogHome)
+            {
+                spriteR.sprite = frog;
                 frogHome = true;
+                EventScript.current.GoalReached();
+            }
         }
     }
 }

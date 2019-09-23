@@ -1,16 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class WinCondition : MonoBehaviour
 {
     public GameObject[] goals;
-    public UnityEvent GameWon;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     // Update is called once per frame
     void Update()
@@ -26,7 +24,7 @@ public class WinCondition : MonoBehaviour
         }
         if (everythingDone == true)
         {
-            GameWon.Invoke();
+            EventScript.current.GameWon();
         }
     }
 }
