@@ -7,7 +7,7 @@ public class EventScript : MonoBehaviour
 {
     public static EventScript current;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         current = this;
     }

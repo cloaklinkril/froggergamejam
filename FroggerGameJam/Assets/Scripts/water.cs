@@ -22,14 +22,15 @@ public class water : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //}
+        
         var dissablecolliders = FindObjectOfType<log>().dissablecollider;
-        var tryeyy = FindObjectOfType<Movment>();
-        if(tryeyy)
+        var withlog = FindObjectOfType<Movment>().logmover;
+        if(withlog)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false; 
+            Debug.Log("collider off");
         }
-        if(tryeyy == false)
+        if(withlog == false)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
