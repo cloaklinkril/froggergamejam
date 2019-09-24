@@ -33,11 +33,11 @@ public class Movment : MonoBehaviour
 
     void Start()
     {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         EventScript.current.onGoalReached += onGoalReached;
         EventScript.current.onRespawnAfterDeath += respawn;
         EventScript.current.onPlayerRunOver += onPlayerRunOver;
         MoveTimer = ResetTimer;
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
